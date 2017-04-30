@@ -4,7 +4,7 @@
   "description": "JavaScript development environment starter",
   "scripts": {
     "prestart": "babel-node build_scripts/start_message.js",
-    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
+    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch start-mockapi",
     "open:src": "babel-node build_scripts/src_server.js",
     "lint": "esw webpack.config.* src build_scripts --color",
     "lint:watch": "npm run lint -- --watch",
@@ -12,7 +12,10 @@
     "localtunnel": "lt --port 3000",
     "share": "npm start localtunnel",
     "test": "mocha --reporter progress build_scripts/test_setup.js \"src/**/*.test.js\"",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "generate-mock-data": "babel-node build_scripts/generate_mock_data",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
   },
   "author": "Cory House",
   "license": "MIT",
