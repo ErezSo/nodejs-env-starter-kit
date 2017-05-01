@@ -2,6 +2,9 @@
    This way you don't have to point to an actual API,
    but you can enjoy realistic, but randomized data,
    and rapid page loads due to local, static data.
+   
+   Here we're using JSON Schema Faker to generate mock data 
+   and serve it with json-server (included).
  */
 
 /* eslint-disable no-console */
